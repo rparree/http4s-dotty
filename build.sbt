@@ -6,7 +6,7 @@ val LogbackVersion = "1.2.3"
 lazy val root = project
   .in(file("."))
   .settings(
-    name := "springest-exporter",
+    name := "http4s-dotty",
     version := "0.1.0",
     evictionWarningOptions := EvictionWarningOptions.empty,
     scalaVersion := scala3Version,
