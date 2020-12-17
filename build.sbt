@@ -1,5 +1,5 @@
-val scala3Version = "3.0.0-M2"
-val Http4sVersion = "0.21.13"
+val scala3Version = "3.0.0-M3"
+val Http4sVersion = "0.21.14"
 //val PureConfigVersion = "0.14.0"
 val LogbackVersion = "1.2.3"
 
@@ -8,7 +8,7 @@ lazy val root = project
   .settings(
     name := "springest-exporter",
     version := "0.1.0",
-
+    evictionWarningOptions := EvictionWarningOptions.empty,
     scalaVersion := scala3Version,
     libraryDependencies ++= Seq(
       //        "org.typelevel" %% "cats-core" % "2.3.0",
@@ -16,7 +16,7 @@ lazy val root = project
 
       ("org.http4s" %% "http4s-dsl" % Http4sVersion).withDottyCompat(scalaVersion.value),
       //("org.http4s" %% "http4s-circe" % Http4sVersion).withDottyCompat(scalaVersion.value),
-      //("ch.qos.logback" % "logback-classic" % LogbackVersion).withDottyCompat(scalaVersion.value),
+      ("ch.qos.logback" % "logback-classic" % LogbackVersion).withDottyCompat(scalaVersion.value),
       /* ("com.github.pureconfig" %% "pureconfig" % PureConfigVersion).withDottyCompat(scalaVersion.value),
          ("com.github.pureconfig" %% "pureconfig-cats-effect" % PureConfigVersion).withDottyCompat(scalaVersion.value),*/
 
