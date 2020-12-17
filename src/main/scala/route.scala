@@ -1,18 +1,16 @@
 import cats._
 import cats.data._
 import cats.implicits._
+import cats.effect.IO
 
-import cats.effect.Sync
 import org.http4s.HttpRoutes
-import org.http4s.dsl.Http4sDsl
+import org.http4s.dsl.io._
 
 
 object LivenessRoutes:
 
-  def routes[F[_] : Sync]: HttpRoutes[F] =
-    val dsl = new Http4sDsl[F] {}
-    import dsl._
-    HttpRoutes.of[F] {
+  def routes: HttpRoutes[IO] =
+    HttpRoutes.of[IO] {
       case GET -> Root / "version" =>
         for
         resp <- Ok("alive")
